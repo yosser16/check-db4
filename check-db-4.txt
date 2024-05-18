@@ -54,4 +54,36 @@ insert into orders (quantity, total_amout,product_id,customer_id,orderdate)
 values (2,9198,02,01,null);
 
 insert into orders (quantity, total_amout,product_id,customer_id,orderdate)
-values (1,3299,01,02,STR_TO_DATE("August 10 2017","%M %d %Y") ); 
+values (1,3299,01,02,STR_TO_DATE("August 10 2017","%M %d %Y") );   
+--------------------------------------------
+
+select * from customers ; 
+select * from products ;
+
+select product_name , category from products 
+where price between 2000 and 5000; 
+
+select * from products order by  price desc ; 
+
+select count(*) as nb_orders , 
+avg(total_amout) as averge_amount,
+ max(total_amout) as largest_amount,
+ min(total_amout)as lowest_amount
+from orders ; 
+
+select customer_id from orders 
+where quantity >2;   
+
+
+insert into orders (quantity, total_amout,product_id,customer_id,orderdate)
+values (4,5000,01,02,STR_TO_DATE("August 12 2017","%M %d %Y") ); 
+
+Select sum(quantity) as nb_of_orders from Orders
+WHERE OrderDate LIKE '2017%'; 
+
+select orders.orderdate , customers.customer_name , products.product_name
+from (( orders inner JOIN Customers ON orders.Customer_id = Customers.Customer_id)
+inner join products on orders.product_id = products.product_id);  
+
+Select Customers.Customer_ID from Customers 
+left join orders On Customers.Customer_ID = Orders.Customer_ID WHERE Orders.Customer_ID is null;
