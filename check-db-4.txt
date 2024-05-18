@@ -1,0 +1,32 @@
+create database mydb ; 
+use mydb; 
+-------- first table ---------
+CREATE TABLE products( product_id int not null auto_increment,
+    product_name varchar(255) not null,
+    price int ,
+PRIMARY key (product_id) 
+); 
+------ excute (select * from products ;  ) done 
+---------------- second table ------------
+CREATE TABLE customers( customer_id int not null auto_increment,
+    customer_name varchar(255) not null,
+   customer_tel int ,
+PRIMARY key (customer_id) 
+); 
+------------excute (select * from customers ; ) done 
+----------third table --------------
+CREATE TABLE orders( quantity int ,
+ total_amout int, 
+product_id int ,
+customer_id int ,
+FOREIGN KEY (customer_id) REFERENCES customers(customer_id),
+FOREIGN KEY (product_id) REFERENCES products(product_id) 
+);
+excute (select * from orders ; ) done  
+------------ modifiy tables -----------
+ALTER TABLE products 
+ADD category varchar(20);
+------------------ select * from products ;  
+ ALTER TABLE orders 
+ADD orderdate date; 
+--------------------select *from orders ;
