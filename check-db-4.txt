@@ -29,4 +29,29 @@ ADD category varchar(20);
 ------------------ select * from products ;  
  ALTER TABLE orders 
 ADD orderdate date; 
---------------------select *from orders ;
+--------------------select *from orders ; 
+
+-----inserting data  ------------  
+
+               ------ products table -----------
+
+insert into products (product_id,product_name,price,category)
+values( 01,'samsung galaxys20',3299,'smartphone');
+
+ insert into products (product_id,product_name,price,category)
+values( 02,'asus Notebook',4599,'PC');
+
+               ---------- customers table ---------------
+insert into customers (customer_id,customer_name,customer_tel)
+values (01,'ali',71321009) ;
+
+insert into customers (customer_id,customer_name,customer_tel)
+values (02,'asma',77345823); 
+
+            ---------- orders table -------------
+
+insert into orders (quantity, total_amout,product_id,customer_id,orderdate)
+values (2,9198,02,01,null);
+
+insert into orders (quantity, total_amout,product_id,customer_id,orderdate)
+values (1,3299,01,02,STR_TO_DATE("August 10 2017","%M %d %Y") ); 
